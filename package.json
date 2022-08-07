@@ -1,0 +1,59 @@
+{
+  "name": "pgcli",
+  "description": "An interactive terminal to execute queries with the PostgreSQL database. (experimental)",
+  "version": "0.0.0",
+  "license": "MIT",
+  "bin": "dist/main.js",
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "build": "tsc && chmod +x dist/main.js",
+    "start": "npm run build && dist/main.js",
+    "pretest": "npm run build",
+    "test": "xo && ava"
+  },
+  "files": [
+    "dist/main.js"
+  ],
+  "dependencies": {
+    "@giusto/ink-router": "^2.4.0",
+    "ink": "^3.2.0",
+    "ink-form": "^1.0.2",
+    "ink-text-input": "^4.0.3",
+    "knex": "^2.2.0",
+    "meow": "^9.0.0",
+    "pg": "^8.7.3",
+    "react": "^17.0.2"
+  },
+  "ava": {
+    "typescript": {
+      "extensions": [
+        "tsx"
+      ],
+      "rewritePaths": {
+        "src/": "dist/"
+      }
+    }
+  },
+  "xo": {
+    "extends": "xo-react",
+    "rules": {
+      "react/prop-types": "off"
+    }
+  },
+  "devDependencies": {
+    "@ava/typescript": "^3.0.1",
+    "@sindresorhus/tsconfig": "^3.0.1",
+    "@types/giusto__ink-router": "^2.4.4",
+    "@types/react": "^18.0.16",
+    "ava": "^4.3.1",
+    "chalk": "^4.1.2",
+    "eslint-config-xo-react": "^0.27.0",
+    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "ink-testing-library": "^2.1.0",
+    "typescript": "^4.7.4",
+    "xo": "^0.39.1"
+  }
+}
